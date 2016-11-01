@@ -58,16 +58,31 @@
        }*/
     var randomNumber = [];
 		var btn = document.getElementById('btn');
+    var scoreHtml = document.getElementById('scoreHTML');
+    var sum;
+
 
 	   btn.addEventListener('click', function() {
       //loop plaatsen
       for (i = 1;i < 6;i++){
 		   randomNumber[i] = (Math.floor(Math.random() * 6 )) +1;
-		   model.teerling.publish(randomNumber[i]);
+       //model.teerling.publish(randomNumber[i]);
+
+          var teerlingHtml = "teerlingHTML_";
+          teerlingHtml += i.toString();
+          teerlingHtml = document.getElementById(teerlingHtml);
+
+           teerlingHtml.innerHTML = randomNumber[i];
        };
+       sum = randomNumber.reduce(function(a,b){return a+b;},0);
+       scoreHTML.innerHTML = sum;
+
 	   });
 					
-							
+					function dobbelen(array,number){
+            array[number] = randomNumber[number];
+            
+          }		
 	   
        //Document.getElementsByClassName("btn").addEventListener("click", teerling.publish(randomNumber()));
        // Wanneer op teerling geklikt wordt moet willekeurig getal gegenereerd worden
@@ -75,20 +90,19 @@
        // teerling.publish(5)
        
        // Scoreboard moet zich inschrijven op wijzigingen van de teerling
-       var scoreHtml = document.getElementById('scoreHTML');
-       var teerlingHtml = document.getElementById('teerlingHTML_1');
+
        
-       var updateTeerling = function ( value )
+       var updateTeerling = function ( value, number )
        {
         for(i=1;i< 6;i++){
-          var teerlingHTML = "teerlingHTML_";
-          teerlingHTML += i.toString();
-          teerlingHtml = document.getElementById(teerlingHTML);
+          var teerlingHtml = "teerlingHTML_";
+          teerlingHtml += i.toString();
+          teerlingHtml = document.getElementById(teerlingHtml);
 
            teerlingHtml.innerHTML = value;
            }
        }
-       
+
        var updateScore = function ( newScore )
        {
            scoreHTML.innerHTML = newScore;
