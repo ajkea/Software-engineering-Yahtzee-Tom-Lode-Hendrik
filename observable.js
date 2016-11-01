@@ -56,13 +56,13 @@
        {
            return Math.floor(Math.random() * 7);
        }*/
-       
+    var randomNumber = [];
 		var btn = document.getElementById('btn');
 
 	   btn.addEventListener('click', function() {
       //loop plaatsen
       for (i = 1;i < 6;i++){
-		   var randomNumber[i] = (Math.floor(Math.random() * 6 )) +1;
+		   randomNumber[i] = (Math.floor(Math.random() * 6 )) +1;
 		   model.teerling.publish(randomNumber[i]);
        };
 	   });
@@ -82,8 +82,9 @@
        {
         for(i=1;i< 6;i++){
           var teerlingHTML = "teerlingHTML_";
-          var i = 1;
-          teerlingHTML_ += i.toString();
+          teerlingHTML += i.toString();
+          teerlingHtml = document.getElementById(teerlingHTML);
+
            teerlingHtml.innerHTML = value;
            }
        }
@@ -95,5 +96,5 @@
 	   
 	   model.teerling.subscribe(updateTeerling);
        
-        model.teerling.subscribe( updateScore );
+     model.teerling.subscribe( updateScore );
        
