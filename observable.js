@@ -60,19 +60,38 @@
 		var btn = document.getElementById('btn');
     var scoreHtml = document.getElementById('scoreHTML');
     var sum;
+    var vastgezet = [false,false,false,false,false];
+    var teerlingen = [document.getElementById('teerlingHTML_1'), document.getElementById('teerlingHTML_2'), document.getElementById('teerlingHTML_3'), document.getElementById('teerlingHTML_4'), document.getElementById('teerlingHTML_5')];
+    
+        //kijken of er op een dobbelsteen is gedrukt en deze in de array vastgezet op true zetten
+holdTeerling = function(index)
+{
+    vastgezet[index] = !vastgezet[index];
+        if(teerlingen[index].className == "teerling red"){
+                teerlingen[index].className = "teerling";
+            }
+        else
+            {
+                teerlingen[index].className = "teerling red"; 
+            }
+}
+
+for(var i = 0;i < teerlingen.length; i++){
+    teerlingen[i].addEventListener('click', holdTeerling.bind(null,i));
+}
+
 
 
 	   btn.addEventListener('click', function() {
       //loop plaatsen
-      for (i = 1;i < 6;i++){
+      for (i = 0;i < 5;i++){
+          if(!vastgezet[i])
+              {
 		   randomNumber[i] = (Math.floor(Math.random() * 6 )) +1;
        //model.teerling.publish(randomNumber[i]);
 
-          var teerlingHtml = "teerlingHTML_";
-          teerlingHtml += i.toString();
-          teerlingHtml = document.getElementById(teerlingHtml);
-
-           teerlingHtml.innerHTML = randomNumber[i];
+           teerlingen[i].innerHTML = randomNumber[i];
+              }
        };
        sum = randomNumber.reduce(function(a,b){return a+b;},0);
        scoreHTML.innerHTML = sum;
@@ -94,12 +113,8 @@
        
        var updateTeerling = function ( value, number )
        {
-        for(i=1;i< 6;i++){
-          var teerlingHtml = "teerlingHTML_";
-          teerlingHtml += i.toString();
-          teerlingHtml = document.getElementById(teerlingHtml);
-
-           teerlingHtml.innerHTML = value;
+        for(i=0;i< 5;i++){
+           teerlingen[i].innerHTML = value;
            }
        }
 
