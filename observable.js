@@ -62,8 +62,14 @@
     var sum;
     var vastgezet = [false,false,false,false,false];
     var teerlingen = [document.getElementById('teerlingHTML_1'), document.getElementById('teerlingHTML_2'), document.getElementById('teerlingHTML_3'), document.getElementById('teerlingHTML_4'), document.getElementById('teerlingHTML_5')];
-    
+    var aantalWorpen;
         //kijken of er op een dobbelsteen is gedrukt en deze in de array vastgezet op true zetten
+
+
+    var disableBtn;
+    disableBtn = document.getElementById("btn");
+    disableBtn.disabled = false;
+    
 holdTeerling = function(index)
 {
     vastgezet[index] = !vastgezet[index];
@@ -83,6 +89,7 @@ for(var i = 0;i < teerlingen.length; i++){
 
 
 	   btn.addEventListener('click', function() {
+        if (aantalWorpen <=2){
       //loop plaatsen
       for (i = 0;i < 5;i++){
           if(!vastgezet[i])
@@ -96,8 +103,13 @@ for(var i = 0;i < teerlingen.length; i++){
        sum = randomNumber.reduce(function(a,b){return a+b;},0);
        scoreHTML.innerHTML = sum;
 
-	   });
-					
+     aantalWorpen++;
+     }//if onder 3 worpen einde
+     else
+     {
+      disableBtn.disabled = true;
+     }
+     });					
 			
 	   
        //Document.getElementsByClassName("btn").addEventListener("click", teerling.publish(randomNumber()));
