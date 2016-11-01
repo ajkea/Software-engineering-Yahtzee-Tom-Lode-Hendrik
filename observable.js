@@ -106,6 +106,7 @@
             }
 }
 
+//functie aanklikken dobbelstenen
 for(var i = 0;i < teerlingen.length; i++){
     teerlingen[i].addEventListener('click', holdTeerling.bind(null,i));
 }
