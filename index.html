@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Yahtzee Spel</title>
+     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
     
     <style>
-    
+        
+        body
+        {
+            font-family: Roboto;
+            background-color: lightgrey;
+            color: dimgrey;
+        }
+        
+        #score
+        {
+            font-size: 2em;
+        }
+        
+        .teerling
+        {
+            background-color: green;
+            color: black;
+            font-size: 10em;
+        }
+        
+        .teerling:hover
+        {
+            cursor: default;
+        }
+        
+        .red
+        {
+            background-color: red;
+        }
+        
+        .dobbelstenen
+        {
+            margin-top: 20px;
+        }
+        
+        
     </style>
     
 </head>
@@ -16,11 +52,11 @@
 
 	<div class="dobbelstenen"
 	<div class="dobbelstenen">
-	<p>Waarde van dobbelsteen 1 is: <span id="teerlingHTML_1">0</span></p>
-	<p>Waarde van dobbelsteen 2 is: <span id="teerlingHTML_2">0</span></p>
-	<p>Waarde van dobbelsteen 3 is: <span id="teerlingHTML_3">0</span></p>
-	<p>Waarde van dobbelsteen 4 is: <span id="teerlingHTML_4">0</span></p>
-	<p>Waarde van dobbelsteen 5 is: <span id="teerlingHTML_5">0</span></p>
+	<span id="teerlingHTML_1" class="teerling">0</span>
+	<span id="teerlingHTML_2" class="teerling">0</span>
+	<span id="teerlingHTML_3" class="teerling">0</span>
+	<span id="teerlingHTML_4" class="teerling">0</span>
+	<span id="teerlingHTML_5" class="teerling">0</span>
 
 	</div>
     <script src="observable.js"></script>
