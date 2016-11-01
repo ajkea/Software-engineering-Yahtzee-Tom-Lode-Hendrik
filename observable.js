@@ -70,26 +70,8 @@
     disableBtn = document.getElementById("btn");
     disableBtn.disabled = false;
     
-holdTeerling = function(index)
-{
-    vastgezet[index] = !vastgezet[index];
-        if(teerlingen[index].className == "teerling red"){
-                teerlingen[index].className = "teerling";
-            }
-        else
-            {
-                teerlingen[index].className = "teerling red"; 
-            }
-}
-
-for(var i = 0;i < teerlingen.length; i++){
-    teerlingen[i].addEventListener('click', holdTeerling.bind(null,i));
-}
-
-
-
 	   btn.addEventListener('click', function() {
-        if (aantalWorpen <=2){
+        if (aantalWorpen <3){ //aantal worpen moet onder 3 blijven (0,1 en 2),anders naar else (disabled button)
       //loop plaatsen
       for (i = 0;i < 5;i++){
           if(!vastgezet[i])
@@ -105,12 +87,28 @@ for(var i = 0;i < teerlingen.length; i++){
 
      aantalWorpen++;
      }//if onder 3 worpen einde
-     else
+     else //disablen van button bij meer als 3 worpen
      {
       disableBtn.disabled = true;
      }
      });					
 			
+
+      holdTeerling = function(index) //veranderen kleur bij aanklikken (bijhouden)
+{
+    vastgezet[index] = !vastgezet[index];
+        if(teerlingen[index].className == "teerling red"){
+                teerlingen[index].className = "teerling";
+            }
+        else
+            {
+                teerlingen[index].className = "teerling red"; 
+            }
+}
+
+for(var i = 0;i < teerlingen.length; i++){
+    teerlingen[i].addEventListener('click', holdTeerling.bind(null,i));
+}
 	   
        //Document.getElementsByClassName("btn").addEventListener("click", teerling.publish(randomNumber()));
        // Wanneer op teerling geklikt wordt moet willekeurig getal gegenereerd worden
@@ -119,7 +117,7 @@ for(var i = 0;i < teerlingen.length; i++){
        
        // Scoreboard moet zich inschrijven op wijzigingen van de teerling
 
-       
+      /*       
        var updateTeerling = function ( value, number )
        {
         for(i=0;i< 5;i++){
@@ -135,4 +133,4 @@ for(var i = 0;i < teerlingen.length; i++){
 	   model.teerling.subscribe(updateTeerling);
        
      model.teerling.subscribe( updateScore );
-       
+       */
