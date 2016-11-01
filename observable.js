@@ -1,4 +1,4 @@
-//gooien 1 dobbelsteen
+     //gooien 1 dobbelsteen
 	   //gooien 5 dobbelstenen
 	   //3 keer gooien max
 	   //bijhouden van dobbelstenen
@@ -48,6 +48,8 @@
        'teerling' : new Observable()
        };
 		   
+       var nummers = [];
+       var aantalWorpen = 0;
 
        
       /* var randomNumber = function()
@@ -58,8 +60,11 @@
 		var btn = document.getElementById('btn');
 
 	   btn.addEventListener('click', function() {
-		   var randomNumber = (Math.floor(Math.random() * 6 )) +1;
-		   model.teerling.publish(randomNumber);
+      //loop plaatsen
+      for (i = 1;i < 6;i++){
+		   var randomNumber[i] = (Math.floor(Math.random() * 6 )) +1;
+		   model.teerling.publish(randomNumber[i]);
+       };
 	   });
 					
 							
@@ -70,16 +75,22 @@
        // teerling.publish(5)
        
        // Scoreboard moet zich inschrijven op wijzigingen van de teerling
-       var teerlingHtml = document.getElementById('dobbelsteen');
+       var scoreHtml = document.getElementById('scoreHTML');
+       var teerlingHtml = document.getElementById('teerlingHTML_1');
        
        var updateTeerling = function ( value )
        {
+        for(i=1;i< 6;i++){
+          var teerlingHTML = "teerlingHTML_";
+          var i = 1;
+          teerlingHTML_ += i.toString();
            teerlingHtml.innerHTML = value;
+           }
        }
        
        var updateScore = function ( newScore )
        {
-           dobbelsteen.innerHTML = newScore;
+           scoreHTML.innerHTML = newScore;
        }
 	   
 	   model.teerling.subscribe(updateTeerling);
