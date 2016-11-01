@@ -98,10 +98,7 @@ for(var i = 0;i < teerlingen.length; i++){
 
 	   });
 					
-					function dobbelen(array,number){
-            array[number] = randomNumber[number];
-            
-          }		
+			
 	   
        //Document.getElementsByClassName("btn").addEventListener("click", teerling.publish(randomNumber()));
        // Wanneer op teerling geklikt wordt moet willekeurig getal gegenereerd worden
