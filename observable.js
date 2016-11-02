@@ -127,7 +127,7 @@
 for(i = 0;i < teerlingen.length; i++){
     teerlingen[i].addEventListener('click', holdTeerling.bind(null,i));
 }
-
+var aantalNummer = [5]
 var een=0,twee=0,drie=0,vier=0,vijf=0,zes=0;
 var scoreEen=0,scoreTwee=0,scoreDrie=0,scoreVier=0,scoreVijf=0,scoreZes=0;
 
@@ -171,52 +171,85 @@ scoreBerekenen = function(array, teller){
       break;
     default:
       break;
-   }}
+   }
+ }
 
 scoreBerekenenMin = function(array, teller){
   switch(array[teller]){
     case 1:
       een= een - 1;
       scoreEen= een*1;
+      if(een==0){
+      return getal1.innerHTML = "",scoreGetal1.innerHTML="";
+      }
+      else{
       return getal1.innerHTML = een, scoreGetal1.innerHTML = scoreEen;
+      }
       break;
 
     case 2:
       twee= twee - 1;
       scoreTwee = twee*2;
+      if(twee==0){
+      return getal2.innerHTML = "",scoreGetal2.innerHTML="";
+      }
+      else{
+      return getal2.innerHTML = twee, scoreGetal2.innerHTML = scoreTwee;
+      }
       return getal2.innerHTML = twee, scoreGetal2.innerHTML = scoreTwee;
       break;
 
     case 3:
       drie= drie - 1;
       scoreDrie = drie*3;
+      if(drie==0){
+      return getal3.innerHTML = "",scoreGetal3.innerHTML="";
+      }
+      else{
       return getal3.innerHTML = drie, scoreGetal3.innerHTML = scoreDrie;
+      }
       break;
 
     case 4:
       vier = vier - 1;
       scoreVier = vier*4;
+      if(vier==0){
+      return getal4.innerHTML = "",scoreGetal4.innerHTML="";
+      }
+      else{
       return getal4.innerHTML = vier, scoreGetal4.innerHTML = scoreVier;
+      }
       break;
 
     case 5:
       vijf= vijf - 1;
       scoreVijf = vijf*5;
+      if(vijf==0){
+      return getal5.innerHTML = "",scoreGetal5.innerHTML="";
+      }
+      else{
       return getal5.innerHTML = vijf, scoreGetal5.innerHTML = scoreVijf;
+      }
       break;
 
     case 6:
       zes= zes - 1;
       scoreZes = zes*6;
+      if(zes==0){
+      return getal6.innerHTML = "",scoreGetal6.innerHTML="";
+      }
+      else{
       return getal6.innerHTML = zes, scoreGetal6.innerHTML = scoreZes;
+      }
       break;
     default:
       break;
    }}
 //score updaten
 
-var een,twee,drie,vier,vijf,zes;
+threeOfAKind = function(array){
 
+}
 
 
 
