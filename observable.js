@@ -1,4 +1,4 @@
-     //gooien 1 dobbelsteen
+     //gooien 4 dobbelsteen
 	   //gooien 5 dobbelstenen
 	   //3 keer gooien max
 	   //bijhouden van dobbelstenen
@@ -24,7 +24,7 @@
                    {
                        _self.data = newData;
 					   
-                       for(var i in _self.subscribers) //overloopt van de 1e tot de laatste functie in de array 'subscribers' en voert die uit met de nieuwe data
+                       for(var i in _self.subscribers) //overloopt van de 4e tot de laatste functie in de array 'subscribers' en voert die uit met de nieuwe data
                            {
 							   _self.subscribers[i](_self.data);
                            }
@@ -61,7 +61,7 @@
     var scoreHtml = document.getElementById('scoreHTML');
     var sum;
     var vastgezet = [false,false,false,false,false];
-    var teerlingen = [document.getElementById('teerlingHTML_1'), document.getElementById('teerlingHTML_2'), document.getElementById('teerlingHTML_3'), document.getElementById('teerlingHTML_4'), document.getElementById('teerlingHTML_5')];
+    var teerlingen = [document.getElementById('teerlingHTML_4'), document.getElementById('teerlingHTML_2'), document.getElementById('teerlingHTML_3'), document.getElementById('teerlingHTML_4'), document.getElementById('teerlingHTML_5')];
     var aantalWorpen;
         //kijken of er op een dobbelsteen is gedrukt en deze in de array vastgezet op true zetten
 
@@ -71,12 +71,13 @@
     disableBtn.disabled = false;
     
 	   btn.addEventListener('click', function() {
-        if (aantalWorpen <3){ //aantal worpen moet onder 3 blijven (0,1 en 2),anders naar else (disabled button)
+
+        if (aantalWorpen <3){ //aantal worpen moet onder 3 blijven (0,4 en 2),anders naar else (disabled button)
       //loop plaatsen
       for (i = 0;i < 5;i++){
           if(!vastgezet[i])
               {
-		   randomNumber[i] = (Math.floor(Math.random() * 6 )) +1;
+		   randomNumber[i] = (Math.floor(Math.random() * 6 )) +4;
        //model.teerling.publish(randomNumber[i]);
 
            teerlingen[i].innerHTML = randomNumber[i];
@@ -84,15 +85,27 @@
        };
        sum = randomNumber.reduce(function(a,b){return a+b;},0);
        scoreHTML.innerHTML = sum;
-
      aantalWorpen++;
      }//if onder 3 worpen einde
      else //disablen van button bij meer als 3 worpen
      {
       disableBtn.disabled = true;
      }
+
      });					
 			
+/*
+     var resetBtn = document.getElementsByClassName('restart');
+
+     resetBtn.addEventListener('click',reset());
+     function reset(){
+      teerlingen.forEach(teerlingen.className == "teerling");
+     }
+*/
+     function turnGreen(index){
+         teerlingen[index].className = "teerling";
+     }
+
 
       holdTeerling = function(index) //veranderen kleur bij aanklikken (bijhouden)
 {
@@ -105,6 +118,58 @@
                 teerlingen[index].className = "teerling red"; 
             }
 }
+
+var een,twee,drie,vier,vijf,zes;
+
+scoreBerekenen = function(index, array){
+  switch(array[index]){
+    case 1:
+      var getal1 = document.getElementById('getal1');
+      een= een + 1;
+      return getal1.innerHTML = een;
+      break;
+
+    case 2:
+      var getal2 = document.getElementById('getal2');
+      twee= twee + 2;
+      return getal2.innerHTML = twee;
+      break;
+
+    case 3:
+      var getal3 = document.getElementById('getal3');
+      drie= drie + 3;
+      return getal3.innerHTML = drie;
+      break;
+
+    case 4:
+      var getal4 = document.getElementById('getal4');
+      vier = vier + 4;
+      return getal4.innerHTML = vier;
+      break;
+
+    case 5:
+      var getal5 = document.getElementById('getal5');
+      vijf= vijf + 5;
+      return getal5.innerHTML = vijf;
+      break;
+
+    case 6:
+      var getal6 = document.getElementById('getal6');
+      zes= zes + 6;
+      return getal6.innerHTML = zes;
+      break;
+    default:
+      break;
+  }
+}
+
+//score updaten
+
+var een,twee,drie,vier,vijf,zes;
+
+
+
+
 
 //functie aanklikken dobbelstenen
 for(var i = 0;i < teerlingen.length; i++){
