@@ -81,7 +81,7 @@
        //model.teerling.publish(randomNumber[i]);
 
            teerlingen[i].innerHTML = randomNumber[i];
-          scoreBerekenen(randomNumber,i);
+          //scoreBerekenen(randomNumber,i);
 
               }
        };
@@ -114,10 +114,12 @@
     vastgezet[index] = !vastgezet[index];
         if(teerlingen[index].className == "teerling red"){
                 teerlingen[index].className = "teerling";
+                scoreBerekenenMin(randomNumber,index);
             }
         else
             {
-                teerlingen[index].className = "teerling red"; 
+                teerlingen[index].className = "teerling red";
+                scoreBerekenen(randomNumber,index);
             }
 }
 
@@ -171,6 +173,46 @@ scoreBerekenen = function(array, teller){
       break;
    }}
 
+scoreBerekenenMin = function(array, teller){
+  switch(array[teller]){
+    case 1:
+      een= een - 1;
+      scoreEen= een*1;
+      return getal1.innerHTML = een, scoreGetal1.innerHTML = scoreEen;
+      break;
+
+    case 2:
+      twee= twee - 1;
+      scoreTwee = twee*2;
+      return getal2.innerHTML = twee, scoreGetal2.innerHTML = scoreTwee;
+      break;
+
+    case 3:
+      drie= drie - 1;
+      scoreDrie = drie*3;
+      return getal3.innerHTML = drie, scoreGetal3.innerHTML = scoreDrie;
+      break;
+
+    case 4:
+      vier = vier - 1;
+      scoreVier = vier*4;
+      return getal4.innerHTML = vier, scoreGetal4.innerHTML = scoreVier;
+      break;
+
+    case 5:
+      vijf= vijf - 1;
+      scoreVijf = vijf*5;
+      return getal5.innerHTML = vijf, scoreGetal5.innerHTML = scoreVijf;
+      break;
+
+    case 6:
+      zes= zes - 1;
+      scoreZes = zes*6;
+      return getal6.innerHTML = zes, scoreGetal6.innerHTML = scoreZes;
+      break;
+    default:
+      break;
+   }}
 //score updaten
 
 var een,twee,drie,vier,vijf,zes;
