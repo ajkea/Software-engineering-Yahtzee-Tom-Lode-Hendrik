@@ -119,44 +119,51 @@
             }
 }
 
-var een,twee,drie,vier,vijf,zes;
+var een=0,twee=0,drie=0,vier=0,vijf=0,zes=0;
+var scoreEen=0,scoreTwee=0,scoreDrie=0,scoreVier=0,scoreVijf=0,scoreZes=0;
 
 scoreBerekenen = function(index, array){
   switch(array[index]){
     case 1:
       var getal1 = document.getElementById('getal1');
       een= een + 1;
-      return getal1.innerHTML = een;
+      scoreEen= een*1;
+      return getal1.innerHTML = een, scoreGetal1.innerHTML = scoreEen;
       break;
 
     case 2:
       var getal2 = document.getElementById('getal2');
-      twee= twee + 2;
-      return getal2.innerHTML = twee;
+      twee= twee + 1;
+      scoreTwee = twee*2;
+      return getal2.innerHTML = twee, scoreGetal2.innerHTML = scoreTwee;
       break;
 
     case 3:
       var getal3 = document.getElementById('getal3');
-      drie= drie + 3;
-      return getal3.innerHTML = drie;
+      drie= drie + 1;
+      scoreDrie = drie*3;
+      return getal3.innerHTML = drie, scoreGetal3.innerHTML = scoreDrie;
       break;
 
     case 4:
       var getal4 = document.getElementById('getal4');
-      vier = vier + 4;
-      return getal4.innerHTML = vier;
+      vier = vier + 1;
+      scoreVier = vier*4;
+      return getal4.innerHTML = vier, scoreGetal4.innerHTML = scoreVier;
       break;
 
     case 5:
       var getal5 = document.getElementById('getal5');
-      vijf= vijf + 5;
-      return getal5.innerHTML = vijf;
+      vijf= vijf + 1;
+      scoreVijf = vijf*5;
+      return getal5.innerHTML = vijf, scoreGetal5.innerHTML = scoreVijf;
       break;
 
     case 6:
       var getal6 = document.getElementById('getal6');
-      zes= zes + 6;
-      return getal6.innerHTML = zes;
+      zes= zes + 1;
+      scoreZes = zes*6;
+      return getal6.innerHTML = zes, scoreGetal6.innerHTML = scoreZes;
       break;
     default:
       break;
