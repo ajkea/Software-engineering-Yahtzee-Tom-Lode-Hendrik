@@ -98,11 +98,7 @@
                   {
               vastgezet[i]=true;
               teerlingen[i].className = "teerling red";
-<<<<<<< HEAD
               scoreBerekenenPlus(randomNumber,i);
-=======
-              scoreBerekenen(randomNumber,i);
->>>>>>> c92ca290f2e6ded4a62ecc85b82b765baba4247c
                   }
           }
      }
@@ -132,11 +128,7 @@
         else
             {
                 teerlingen[index].className = "teerling red";
-<<<<<<< HEAD
                 scoreBerekenenPlus(randomNumber,index);
-=======
-                scoreBerekenen(randomNumber,index);
->>>>>>> c92ca290f2e6ded4a62ecc85b82b765baba4247c
             }
 }
 
@@ -148,15 +140,10 @@ var aantalNummer = [5]
 var een=0,twee=0,drie=0,vier=0,vijf=0,zes=0;
 var scoreEen=0,scoreTwee=0,scoreDrie=0,scoreVier=0,scoreVijf=0,scoreZes=0;
 var two = false,three = false,four=false,five=false;
-<<<<<<< HEAD
   
 var chance = document.getElementById('scoreChance');
 
 scoreBerekenenPlus = function(array, teller){
-=======
-
-scoreBerekenen = function(array, teller){
->>>>>>> c92ca290f2e6ded4a62ecc85b82b765baba4247c
   switch(array[teller]){
     case 1:
       een= een + 1;
@@ -272,7 +259,6 @@ scoreBerekenenMin = function(array, teller){
 //score updaten
 
 threeOfAKind = function(een,twee,drie,vier,vijf,zes){
-<<<<<<< HEAD
   if(een ==3 || twee==3||drie==3||vier==3||vijf==3||zes==3){
     three=true;
     scoreThree.innerHTML = sum;
@@ -294,26 +280,10 @@ yahtzee = function(een,twee,drie,vier,vijf,zes){
 
 paar = function(een,twee,drie,vier,vijf,zes){
   if(een ==2 || twee==2||drie==2||vier==2||vijf==2||zes==2)two=true;
-=======
-  if(een ==3 || twee==3||drie==3||vier==3||vijf==3||zes==3) return true,three=true;
-}
-
-fourOfAKind = function(een,twee,drie,vier,vijf,zes){
-  if(een ==4 || twee==4||drie==4||vier==4||vijf==4||zes==4) return true,four=true;
-}
-
-yahtzee = function(een,twee,drie,vier,vijf,zes){
-  if(een ==5 || twee==5||drie==5||vier==5||vijf==5||zes==5) return true,five=true;
-}
-
-paar = function(een,twee,drie,vier,vijf,zes){
-  if(een ==2 || twee==2||drie==2||vier==2||vijf==2||zes==2) return true,two=true;
->>>>>>> c92ca290f2e6ded4a62ecc85b82b765baba4247c
 }
 
 fullHouse = function(threeOfAKind,paar){
   if(threeOfAKind==true && paar == true){
-<<<<<<< HEAD
     scoreFullHouse.innerHTML = 25;
   }
 }
@@ -331,20 +301,45 @@ startScore = function(array,teller,een,twee,drie,vier,vijf,zes){
   yahtzee(een,twee,drie,vier,vijf,zes);
   paar(een,twee,drie,vier,vijf,zes);
   fullHouse(een,twee,drie,vier,vijf,zes);
+  smallStraight();
+  largeStraight();
   chance(array);
 }
 
-=======
-    return true;
-  }
-}
-
-//randomNumber = [1, 5, 4, 5, 3]
-smallStraight = function(getallen){
-    getallen.sort();
-    var isSmallStraight = false;
+smallStraight = function(){
+    getallen = randomNumber.sort();
     var longest = 0;
     var sequence = 0;
+    for(i=1; i<getallen.length; i++)
+        {
+            var d = getallen[i] - getallen[i-1];
+            switch (d)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        sequence += 1;
+                        break;
+                    default:
+                        if(sequence > longest)
+                            {
+                                longest = sequence;
+                            }
+                        break;
+                }
+        }
+    if(sequence > 2)
+        {
+            return true;
+        }
+    
+    return false;
+}
+
+largeStraight = function(){
+    getallen = randomNumber.sort();
+    var sequence = 0;
+    var longest = 0;
     for(i=1; i<getallen.length; i++)
         {
             var d = getallen[i] - getallen[i-1];
@@ -365,48 +360,12 @@ smallStraight = function(getallen){
         }
     if(sequence > 3)
         {
-            isSmallStraight = true;
+            return true;
         }
-    
-    return isSmallStraight;
+
+    return false;
 }
 
-largeStraight = function(getallen){
-    getallen.sort();
-    var isLargeStraight = false;
-    var sequence = 0;
-    var longest = 0;
-    for(i=1; i<getallen.length; i++)
-        {
-            var d = getallen[i] - getallen[i-1];
-            switch (d)
-                {
-                    case 0:
-                        break;
-                    case 1:
-                        sequence += 1;
-                        break;
-                    default:
-                        if(sequence > longest)
-                            {
-                                longest = sequence;
-                            }
-                        break;
-                }
-        }
-    if(sequence > 4)
-        {
-            isLargeStraight = true;
-        }
-
-    return isLargeStraight;
-}
-
-
-
-
-
->>>>>>> c92ca290f2e6ded4a62ecc85b82b765baba4247c
      
        //Document.getElementsByClassName("btn").addEventListener("click", teerling.publish(randomNumber()));
        // Wanneer op teerling geklikt wordt moet willekeurig getal gegenereerd worden
