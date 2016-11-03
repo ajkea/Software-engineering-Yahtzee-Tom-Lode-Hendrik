@@ -3,17 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <title>Yahtzee Spel</title>
+     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
     
     <style>
-    
+        
+        body
+        {
+            font-family: Roboto;
+            background-color: lightgrey;
+            color: white;
+
+            position:absolute;
+            top:50%;
+            left:50%;
+            padding:15px;
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+        }
+        
+        #btn{
+            text-align: center;
+            width: 200px;
+            -moz-box-shadow: 1px 2px 15px rgba(0,0,0,.5);
+            -webkit-box-shadow: 1px 2px 15px rgba(0,0,0,.5);
+            box-shadow: 1px 2px 15px rgba(0,0,0,.5);
+        }
+
+        #score
+        {
+            font-size: 2em;
+            text-align: center;
+        }
+        
+        .teerling
+        {
+            background-color: green;
+            color: black;
+            font-size: 10em;
+            margin:2px;
+            -moz-box-shadow: 1px 2px 15px rgba(0,0,0,.5);
+            -webkit-box-shadow: 1px 2px 15px rgba(0,0,0,.5);
+            box-shadow: 1px 2px 15px rgba(0,0,0,.5);
+        }
+        
+        .teerling:hover
+        {
+            cursor: default;
+        }
+        
+        .red
+        {
+            background-color: red;
+        }
+        
+        .dobbelstenen
+        {
+            margin-top: 20px;
+            margin-bottom: 10px;
+
+        }
+        
+        .content{
+            text-align: center;
+            background-color: gray;
+            padding:0em 3em 2em 3em;
+            border-style: solid;
+            border-color: white;
+            border-width:10px;
+            width:500px;
+        }
+        
+        table{
+            width:100%;
+            color:black;
+        }
+
+        table, th, td{
+            border: 1px solid black;
+        }
+
     </style>
     
 </head>
 <body>
-   <p id="score">Score: <span id="dobbelsteen">0</span></p>
+
+    <div class="content">
+    <p id="score">Score: <span id="scoreHTML">0</span></p>
 	
-	
-	<button id="btn">klik</button>
+	<p><button id="btn">klik</button></p>
+
+	<div class="dobbelstenen">
+	<span id="teerlingHTML_1" class="teerling">0</span>
+	<span id="teerlingHTML_2" class="teerling">0</span>
+	<span id="teerlingHTML_3" class="teerling">0</span>
+	<span id="teerlingHTML_4" class="teerling">0</span>
+	<span id="teerlingHTML_5" class="teerling">0</span>
+	</div><!--klasse dobbelstenen-->
+
+    <div class="combinaties">
+    
+
+    </div><!--klasse combinaties-->
+    <table>
+        <tr>
+            <th>Combinatie</th>
+            <th>Aantal</th>
+            <th>Score</th>
+        </tr>
+
+        <tr>
+            <td>Aces</td>
+            <td><span id="getal1"></span></td>
+            <td><span id="scoreGetal1"></span></td>
+        </tr>
+        <tr>
+            <td>Twos</td>
+            <td><span id="getal2"></span></td>
+            <td><span id="scoreGetal2"></span></td>
+        </tr>
+        <tr>
+            <td>Threes</td>
+            <td><span id="getal3"></span></td>
+            <td><span id="scoreGetal3"></span></td>
+        </tr>
+        <tr>
+            <td>Fours</td>
+            <td><span id="getal4"></span></td>
+            <td><span id="scoreGetal4"></span></td>
+        </tr>
+        <tr>
+            <td>Fives</td>
+            <td><span id="getal5"></span></td>
+            <td><span id="scoreGetal5"></span></td>
+        </tr>
+        <tr>
+            <td>Sixes</td>
+            <td><span id="getal6"></span></td>
+            <td><span id="scoreGetal6"></span></td>
+        </tr>
+        
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+
+        <tr>
+            <td>3/4 of a kind</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Full House</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Kleine straat</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Grote straat</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>YAHTZEE</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Chance</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+
+        <tr>
+            <td>Totaal:</td>
+            <td>====></td>
+            <td></td>
+        </tr>
+    </table>
+    </div><!--klasse content-->
     <script src="observable.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </body>
