@@ -56,7 +56,7 @@
        {
            return Math.floor(Math.random() * 7);
        }*/
-    var randomNumber = [];
+    var randomNumber = []; //array dobbelsteenwaarden
     var btn = document.getElementById('btn');
     var scoreHtml = document.getElementById('scoreHTML');
     var sum;
@@ -70,6 +70,8 @@
     disableBtn = document.getElementById("btn");
     disableBtn.disabled = false;
     
+
+    //functie klikken voor te werpen
      btn.addEventListener('click', function() {
 
         if (aantalWorpen <3){ //aantal worpen moet onder 3 blijven (0,1 en 2),anders naar else (disabled button)
@@ -130,13 +132,21 @@ for(i = 0;i < teerlingen.length; i++){
 var aantalNummer = [5]
 var een=0,twee=0,drie=0,vier=0,vijf=0,zes=0;
 var scoreEen=0,scoreTwee=0,scoreDrie=0,scoreVier=0,scoreVijf=0,scoreZes=0;
+var threeOfAKind=false,fourOfAKind=false,Yahtzee=false;
+var arrayAantal = [een,twee,drie,vier,vijf,zes];
 
 
+///////////////////////////////////////////////////
+///////////FUNCTIES SCORE BEREKENEN////////////////
+///////////////////////////////////////////////////
+
+///ENKELE CIJFERS TOEVOEGEN
 scoreBerekenen = function(array, teller){
   switch(array[teller]){
     case 1:
       een= een + 1;
       scoreEen= een*1;
+      arrayAantal[0] = een;
       return getal1.innerHTML = een, scoreGetal1.innerHTML = scoreEen;
       break;
 
@@ -174,6 +184,7 @@ scoreBerekenen = function(array, teller){
    }
  }
 
+///ENKELE CIJFERS VERWIJDEREN
 scoreBerekenenMin = function(array, teller){
   switch(array[teller]){
     case 1:
@@ -245,17 +256,11 @@ scoreBerekenenMin = function(array, teller){
     default:
       break;
    }}
+
+
+
+
 //score updaten
-
-threeOfAKind = function(array){
-
-}
-
-
-
-
-
-
 
      
        //Document.getElementsByClassName("btn").addEventListener("click", teerling.publish(randomNumber()));
