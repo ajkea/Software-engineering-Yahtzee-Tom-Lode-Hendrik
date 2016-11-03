@@ -98,11 +98,11 @@
                   {
               vastgezet[i]=true;
               teerlingen[i].className = "teerling red";
-              scoreBerekenenPlus(randomNumber,i);
+              startScorePlus(randomNumber,i);
                   }
           }
      }
-
+startScorePlus(randomNumber);
      });          
       
 /*
@@ -123,12 +123,12 @@
     vastgezet[index] = !vastgezet[index];
         if(teerlingen[index].className == "teerling red"){
                 teerlingen[index].className = "teerling";
-                scoreBerekenenMin(randomNumber,index);
+                startScoreMin(randomNumber,index);
             }
         else
             {
                 teerlingen[index].className = "teerling red";
-                scoreBerekenenPlus(randomNumber,index);
+                startScorePlus(randomNumber,index);
             }
 }
 
@@ -183,6 +183,7 @@ scoreBerekenenPlus = function(array, teller){
     default:
       break;
    }
+   return een,twee,drie,vier,vijf,zes;
  }
 
 scoreBerekenenMin = function(array, teller){
@@ -255,10 +256,11 @@ scoreBerekenenMin = function(array, teller){
       break;
     default:
       break;
-   }}
+   }return een,twee,drie,vier,vijf,zes;}
 //score updaten
 
 threeOfAKind = function(een,twee,drie,vier,vijf,zes){
+  three=false;
   if(een ==3 || twee==3||drie==3||vier==3||vijf==3||zes==3){
     three=true;
     scoreThree.innerHTML = sum;
@@ -266,6 +268,7 @@ threeOfAKind = function(een,twee,drie,vier,vijf,zes){
 }
 
 fourOfAKind = function(een,twee,drie,vier,vijf,zes){
+  four=false;
   if(een ==4 || twee==4||drie==4||vier==4||vijf==4||zes==4){
     four=true;
     scoreFour.innerHTML = sum;
@@ -279,6 +282,7 @@ yahtzee = function(een,twee,drie,vier,vijf,zes){
 }
 
 paar = function(een,twee,drie,vier,vijf,zes){
+  two=false;
   if(een ==2 || twee==2||drie==2||vier==2||vijf==2||zes==2)two=true;
 }
 
@@ -291,19 +295,6 @@ fullHouse = function(threeOfAKind,paar){
 chance = function(array){
   sum = array.reduce(function(a,b){return a+b;},0);
   scoreChance.innerHTML = sum;
-}
-
-startScore = function(array,teller,een,twee,drie,vier,vijf,zes){
-
-  scoreBerekenenPlus(array,teller);
-  threeOfAKind(een,twee,drie,vier,vijf,zes);
-  fourOfAKind(een,twee,drie,vier,vijf,zes);
-  yahtzee(een,twee,drie,vier,vijf,zes);
-  paar(een,twee,drie,vier,vijf,zes);
-  fullHouse(een,twee,drie,vier,vijf,zes);
-  smallStraight();
-  largeStraight();
-  chance(array);
 }
 
 smallStraight = function(){
@@ -330,6 +321,7 @@ smallStraight = function(){
         }
     if(sequence > 2)
         {
+            scoreSmallStraight.innerHTML=30;
             return true;
         }
     
@@ -360,11 +352,38 @@ largeStraight = function(){
         }
     if(sequence > 3)
         {
+            scoreLargeStraight.innerHTML = 40;
             return true;
         }
 
     return false;
 }
+
+startScorePlus = function(array,teller){
+  scoreBerekenenPlus(array,teller);
+  threeOfAKind(een,twee,drie,vier,vijf,zes);
+  fourOfAKind(een,twee,drie,vier,vijf,zes);
+  yahtzee(een,twee,drie,vier,vijf,zes);
+  paar(een,twee,drie,vier,vijf,zes);
+  fullHouse(three,two);
+  smallStraight();
+  largeStraight();
+  chance(array);
+}
+
+startScoreMin = function(array,teller){
+  scoreBerekenenMin(array,teller);
+  threeOfAKind(een,twee,drie,vier,vijf,zes);
+  fourOfAKind(een,twee,drie,vier,vijf,zes);
+  yahtzee(een,twee,drie,vier,vijf,zes);
+  paar(een,twee,drie,vier,vijf,zes);
+  fullHouse(een,twee,drie,vier,vijf,zes);
+  smallStraight();
+  largeStraight();
+  chance(array);
+}
+
+
 
      
        //Document.getElementsByClassName("btn").addEventListener("click", teerling.publish(randomNumber()));
