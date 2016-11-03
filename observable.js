@@ -98,11 +98,9 @@
                   {
               vastgezet[i]=true;
               teerlingen[i].className = "teerling red";
-              startScorePlus(randomNumber,i);
                   }
           }
      }
-startScorePlus(randomNumber);
      });          
       
 /*
@@ -371,6 +369,7 @@ startScorePlus = function(array,teller){
   chance(array);
 }
 
+//dit gebruik je bij het deselecteren van een kaart (kaart wordt min gedaan en functies worden opnieuw overlopen)
 startScoreMin = function(array,teller){
   scoreBerekenenMin(array,teller);
   threeOfAKind(een,twee,drie,vier,vijf,zes);
