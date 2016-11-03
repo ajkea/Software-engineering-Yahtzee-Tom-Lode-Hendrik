@@ -139,7 +139,7 @@ for(i = 0;i < teerlingen.length; i++){
 var aantalNummer = [5]
 var een=0,twee=0,drie=0,vier=0,vijf=0,zes=0;
 var scoreEen=0,scoreTwee=0,scoreDrie=0,scoreVier=0,scoreVijf=0,scoreZes=0;
-
+var two = false,three = false,four=false,five=false;
 
 scoreBerekenen = function(array, teller){
   switch(array[teller]){
@@ -256,8 +256,26 @@ scoreBerekenenMin = function(array, teller){
    }}
 //score updaten
 
-threeOfAKind = function(array){
+threeOfAKind = function(een,twee,drie,vier,vijf,zes){
+  if(een ==3 || twee==3||drie==3||vier==3||vijf==3||zes==3) return true,three=true;
+}
 
+fourOfAKind = function(een,twee,drie,vier,vijf,zes){
+  if(een ==4 || twee==4||drie==4||vier==4||vijf==4||zes==4) return true,four=true;
+}
+
+yahtzee = function(een,twee,drie,vier,vijf,zes){
+  if(een ==5 || twee==5||drie==5||vier==5||vijf==5||zes==5) return true,five=true;
+}
+
+paar = function(een,twee,drie,vier,vijf,zes){
+  if(een ==2 || twee==2||drie==2||vier==2||vijf==2||zes==2) return true,two=true;
+}
+
+fullHouse = function(threeOfAKind,paar){
+  if(threeOfAKind==true && paar == true){
+    return true;
+  }
 }
 
 
