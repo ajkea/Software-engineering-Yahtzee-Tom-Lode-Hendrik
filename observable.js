@@ -140,6 +140,8 @@ var aantalNummer = [5]
 var een=0,twee=0,drie=0,vier=0,vijf=0,zes=0;
 var scoreEen=0,scoreTwee=0,scoreDrie=0,scoreVier=0,scoreVijf=0,scoreZes=0;
 var two = false,three = false,four=false,five=false;
+  
+var chance = document.getElementById('scoreChance');
 
 scoreBerekenen = function(array, teller){
   switch(array[teller]){
@@ -257,7 +259,10 @@ scoreBerekenenMin = function(array, teller){
 //score updaten
 
 threeOfAKind = function(een,twee,drie,vier,vijf,zes){
-  if(een ==3 || twee==3||drie==3||vier==3||vijf==3||zes==3) return true,three=true;
+  if(een ==3 || twee==3||drie==3||vier==3||vijf==3||zes==3){
+    three=true;
+    scoreThree.innerHTML = scoreDrie;
+  }
 }
 
 fourOfAKind = function(een,twee,drie,vier,vijf,zes){
@@ -278,6 +283,10 @@ fullHouse = function(threeOfAKind,paar){
   }
 }
 
+chance = function(array){
+  sum = array.reduce(function(a,b){return a+b;},0);
+  scoreChance.innerHTML = sum;
+}
 
 
 
