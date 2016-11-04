@@ -78,6 +78,17 @@
         table, th, td{
             border: 1px solid black;
         }
+        
+        .clickable
+        {
+            color: green;
+        }
+        
+        .clicked
+        {
+            color: darkred;
+        }
+
     </style>
     
 </head>
@@ -106,33 +117,33 @@
             <th>Aantal</th>
             <th>Score</th>
         </tr>
-
-        <tr>
+        
+        <tr id="score1">
             <td>Aces</td>
             <td><span id="getal1"></span></td>
             <td><span id="scoreGetal1"></span></td>
         </tr>
-        <tr>
+        <tr id="score2">
             <td>Twos</td>
             <td><span id="getal2"></span></td>
             <td><span id="scoreGetal2"></span></td>
         </tr>
-        <tr>
+        <tr id="score3">
             <td>Threes</td>
             <td><span id="getal3"></span></td>
             <td><span id="scoreGetal3"></span></td>
         </tr>
-        <tr>
+        <tr id="score4">
             <td>Fours</td>
             <td><span id="getal4"></span></td>
             <td><span id="scoreGetal4"></span></td>
         </tr>
-        <tr>
+        <tr id="score5">
             <td>Fives</td>
             <td><span id="getal5"></span></td>
             <td><span id="scoreGetal5"></span></td>
         </tr>
-        <tr>
+        <tr id="score6">
             <td>Sixes</td>
             <td><span id="getal6"></span></td>
             <td><span id="scoreGetal6"></span></td>
@@ -143,55 +154,55 @@
         <td></td>
         <td></td>
         </tr>
-
-        <tr>
+        
+        <tr id="score7">
             <td>3 of a kind</td>
             <td></td>
             <td><span id="scoreThree"></span></td>
         </tr>
-        <tr>
+        <tr id="score8">
             <td>4 of a kind</td>
             <td></td>
             <td><span id="scoreFour"></span></td>
         </tr>
-        <tr>
+        <tr id="score9">
             <td>Full House</td>
             <td></td>
             <td><span id="scoreFullHouse"></span></td>
         </tr>
-        <tr>
+        <tr id="score10">
             <td>Kleine straat</td>
             <td></td>
             <td><span id="scoreSmallStraight"></span></td>
         </tr>
-        <tr>
+        <tr id="score11">
             <td>Grote straat</td>
             <td></td>
             <td><span id="scoreLargeStraight"></span></td>
         </tr>
-        <tr>
+        <tr id="score12">
             <td>YAHTZEE</td>
             <td></td>
             <td><span id="scoreYahtzee"></span></td>
         </tr>
-        <tr>
+        <tr id="score13">
             <td>Chance</td>
             <td></td>
             <td><span id="scoreChance"></span></td>
         </tr>
-
+<!--
 
         <tr>
         <td></td>
         <td></td>
         <td></td>
         </tr>
-
         <tr>
             <td>Totaal:</td>
             <td>====></td>
             <td></td>
         </tr>
+-->
     </table>
     </div><!--klasse content-->
     <script src="observable.js"></script>
