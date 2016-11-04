@@ -528,6 +528,7 @@ startScorePlus = function(array,teller){
 }
 
 startScoreMin = function(array,teller){
+  scoreBerekenenMin(array,teller);
 threeOfAKind();
   fourOfAKind();
   yahtzee();
